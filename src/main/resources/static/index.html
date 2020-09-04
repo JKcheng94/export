@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+</head>
+<body>
+    <button onclick="exportxml();">导出</button>
+<script>
+    function exportxml() {
+        var url = "http://localhost:8080/export";
+        var iframe = $('<iframe id="rfFrame" name="rfFrame" src="about:blank" style="display: none"/>');
+        var form = $('<form target="rfFrame" method="post"/>');
+        form.attr('action', url);
+        iframe.append(form);
+        $(document.body).append(iframe);
+        form[0].submit();
+    }
+</script>
+</body>
+</html>
